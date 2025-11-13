@@ -1,6 +1,7 @@
 package ru.Artem.Vinyl.crud_repos;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import ru.Artem.Vinyl.entity.VinylRecord;
@@ -8,13 +9,9 @@ import java.util.List;
 
 /**
  * CRUD-репозиторий для VinylRecord.
- *
- * Реализует стандартные CRUD-операции через CrudRepository.
- *
- * Пункт 5 задания:
- * - Метод с Query Lookup Strategy (Between и And): findByYearBetweenAndPriceLessThan
- * - Метод с JPQL для поиска через связанную сущность (Genre): findByGenreName
+ * REST API доступен по пути /vinylRecords
  */
+@RepositoryRestResource(path = "vinylRecords")
 public interface VinylRecordRepository extends CrudRepository<VinylRecord, Long>, VinylRecordRepositoryCustom {
 
     /**

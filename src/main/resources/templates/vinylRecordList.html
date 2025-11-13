@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vinyl Records List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<h1>Список виниловых пластинок</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Год</th>
+        <th>Цена</th>
+        <th>Состояние</th>
+        <th>Жанр</th>
+        <th>Лейбл</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Перебираем все записи из модели -->
+    <tr th:each="record : ${records}">
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.title}"></td>
+        <td th:text="${record.year}"></td>
+        <td th:text="${record.price}"></td>
+        <td th:text="${record.condition}"></td>
+        <!-- Безопасное отображение связанных сущностей -->
+        <td th:text="${record.genre != null ? record.genre.name : 'N/A'}"></td>
+        <td th:text="${record.label != null ? record.label.name : 'N/A'}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p style="margin-top: 20px;">
+    <a href="/">На главную</a>
+</p>
+</body>
+</html>
