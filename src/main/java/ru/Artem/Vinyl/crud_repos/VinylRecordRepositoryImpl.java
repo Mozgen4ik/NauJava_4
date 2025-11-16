@@ -12,12 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Реализация кастомного репозитория с использованием Criteria API (пункт 6 задания).
- *
- * Название класса должно быть <RepositoryInterfaceName>Impl,
- * чтобы Spring автоматически подхватил реализацию.
- *
- * Содержит те же 2 метода, что и в VinylRecordRepository, но реализованные через Criteria API.
+ * Реализация кастомного репозитория с использованием Criteria API.
+ * Содержит 2 метода, что и VinylRecordRepository, но через Criteria API.
  */
 
 public class VinylRecordRepositoryImpl implements VinylRecordRepositoryCustom {
@@ -27,7 +23,6 @@ public class VinylRecordRepositoryImpl implements VinylRecordRepositoryCustom {
 
     /**
      * Criteria API реализация метода findByYearBetweenAndPriceLessThan.
-     * Аналог Query Method из пункта 5.
      */
     @Override
     public List<VinylRecord> findByYearBetweenAndPriceLessThanCriteria(Integer startYear, Integer endYear, Float maxPrice) {
@@ -54,7 +49,6 @@ public class VinylRecordRepositoryImpl implements VinylRecordRepositoryCustom {
 
     /**
      * Criteria API реализация метода findByGenreName.
-     * Поиск через связанную сущность (Genre). Аналог JPQL запроса из пункта 5.
      */
     @Override
     public List<VinylRecord> findByGenreNameCriteria(String genreName) {

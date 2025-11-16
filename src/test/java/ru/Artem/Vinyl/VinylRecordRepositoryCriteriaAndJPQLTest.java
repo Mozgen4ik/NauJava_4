@@ -8,7 +8,6 @@ import ru.Artem.Vinyl.entity.VinylRecord;
 import ru.Artem.Vinyl.entity.Genre;
 import ru.Artem.Vinyl.entity.Label;
 import ru.Artem.Vinyl.crud_repos.VinylRecordRepository;
-import ru.Artem.Vinyl.crud_repos.VinylRecordRepositoryCustom;
 import ru.Artem.Vinyl.crud_repos.GenreRepository;
 import ru.Artem.Vinyl.crud_repos.LabelRepository;
 

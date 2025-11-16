@@ -9,19 +9,12 @@ import java.util.List;
 
 /**
  * CRUD-репозиторий для связующей сущности Record_Artist.
- * Предоставляет методы для поиска связей по артисту или пластинке.
  * REST API доступен по пути /recordArtists
  */
 @RepositoryRestResource(path = "recordArtists")
 public interface Record_ArtistRepository extends CrudRepository<Record_Artist, Long> {
 
-    /**
-     * Находит все связи для конкретной виниловой пластинки.
-     */
     List<Record_Artist> findByRecord(VinylRecord record);
 
-    /**
-     * Находит все связи для конкретного артиста.
-     */
     List<Record_Artist> findByArtist(Artist artist);
 }

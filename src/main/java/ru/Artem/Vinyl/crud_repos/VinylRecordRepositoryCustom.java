@@ -4,8 +4,7 @@ import ru.Artem.Vinyl.entity.VinylRecord;
 import java.util.List;
 
 /**
- * Кастомный интерфейс для методов, реализованных через Criteria API.
- * Здесь мы описываем методы, которые будут реализованы в VinylRecordRepositoryImpl.
+ * Кастомный интерфейс для методов через Criteria API.
  */
 public interface VinylRecordRepositoryCustom {
     List<VinylRecord> findByYearBetweenAndPriceLessThanCriteria(Integer startYear, Integer endYear, Float maxPrice);

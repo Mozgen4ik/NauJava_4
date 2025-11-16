@@ -9,9 +9,7 @@ import java.util.List;
 
 /**
  * REST контроллер для работы с виниловыми пластинками.
- * Предоставляет доступ к кастомным методам поиска.
- *
- * Все методы доступны по базовому пути: /api/vinyl
+ * Все методы доступны по пути: /api/vinyl
  */
 @RestController
 @RequestMapping("/api/vinyl")
@@ -27,8 +25,6 @@ public class VinylRecordController {
     /**
      * Поиск пластинок по диапазону годов и максимальной цене.
      *
-     * Пример запроса:
-     * GET /api/vinyl/searchByYearAndPrice?startYear=1970&endYear=1980&maxPrice=50.0
      *
      * @param startYear начальный год
      * @param endYear конечный год
@@ -44,10 +40,8 @@ public class VinylRecordController {
     }
 
     /**
-     * Поиск пластинок по названию жанра (JPQL метод).
+     * Поиск пластинок по названию жанра (JPQL).
      *
-     * Пример запроса:
-     * GET /api/vinyl/searchByGenre?genreName=Rock
      *
      * @param genreName название жанра
      * @return список найденных пластинок
@@ -61,10 +55,7 @@ public class VinylRecordController {
     }
 
     /**
-     * Поиск пластинок по диапазону годов и цене (Criteria API версия).
-     *
-     * Пример запроса:
-     * GET /api/vinyl/searchByYearAndPriceCriteria?startYear=1970&endYear=1980&maxPrice=50.0
+     * Поиск пластинок по диапазону годов и цене (Criteria API).
      *
      * @param startYear начальный год
      * @param endYear конечный год
@@ -80,10 +71,8 @@ public class VinylRecordController {
     }
 
     /**
-     * Поиск пластинок по названию жанра (Criteria API версия).
+     * Поиск пластинок по названию жанра (Criteria API).
      *
-     * Пример запроса:
-     * GET /api/vinyl/searchByGenreCriteria?genreName=Rock
      *
      * @param genreName название жанра
      * @return список найденных пластинок

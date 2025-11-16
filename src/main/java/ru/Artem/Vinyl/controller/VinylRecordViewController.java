@@ -10,7 +10,6 @@ import ru.Artem.Vinyl.service.VinylRecordService;
 
 /**
  * Контроллер для отображения HTML страниц с виниловыми пластинками.
- *
  * Страницы доступны по базовому пути: /vinyl/view
  */
 @Controller
@@ -26,8 +25,6 @@ public class VinylRecordViewController {
 
     /**
      * Отображает список всех виниловых пластинок в виде HTML таблицы.
-     *
-     * Страница доступна по адресу: /vinyl/view/list
      *
      * @param model модель для передачи данных в шаблон
      * @return имя шаблона для рендеринга

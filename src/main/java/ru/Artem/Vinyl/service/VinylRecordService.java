@@ -18,8 +18,6 @@ import java.util.Optional;
  *  - метод поиска по названию жанра через JPQL: findByGenreName
  *  - методы-обёртки над Criteria-реализацией (через VinylRecordRepositoryCustom),
  *    чтобы использовать альтернативную реализацию запросов (пункт 6 методички).
- *
- * Код написан простым, понятным стилем, как для уровня junior-разработчика.
  */
 @Service
 public class VinylRecordService {
@@ -61,16 +59,14 @@ public class VinylRecordService {
     }
 
     /**
-     * Пример использования Query Lookup Strategy:
-     * найти записи с year BETWEEN startYear AND endYear AND price < maxPrice.
-     * (метод определён в VinylRecordRepository как findByYearBetweenAndPriceLessThan).
+     * Пример использования Query Lookup Strategy
      */
     public List<VinylRecord> findByYearBetweenAndPriceLessThan(Integer startYear, Integer endYear, Float maxPrice) {
         return vinylRecordRepository.findByYearBetweenAndPriceLessThan(startYear, endYear, maxPrice);
     }
 
     /**
-     * JPQL-метод: найти записи по имени жанра (в репозитории есть @Query findByGenreName).
+     * JPQL-метод: найти записи по имени жанра
      */
     public List<VinylRecord> findByGenreName(String genreName) {
         return vinylRecordRepository.findByGenreName(genreName);
@@ -78,7 +74,6 @@ public class VinylRecordService {
 
     /**
      * Criteria-реализация того же поиска: year between & price less than.
-     * Вызывает метод из VinylRecordRepositoryCustom (реализован в VinylRecordRepositoryImpl).
      */
     public List<VinylRecord> findByYearBetweenAndPriceLessThanCriteria(Integer startYear, Integer endYear, Float maxPrice) {
         return vinylRecordRepository.findByYearBetweenAndPriceLessThanCriteria(startYear, endYear, maxPrice);

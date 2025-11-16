@@ -9,15 +9,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Глобальный обработчик исключений для всех контроллеров.
  *
- * Аннотация @ControllerAdvice применяет этот класс ко всем контроллерам в приложении.
- * Все необработанные исключения будут перехвачены методами этого класса.
  */
 @ControllerAdvice
 public class ExceptionControllerAdvice {
 
     /**
-     * Обработка общих исключений (Exception).
-     * Возвращает HTTP статус 500 (Internal Server Error).
+     * Обработка общих исключений.
+     * Возвращает HTTP статус 500.
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
@@ -28,7 +26,7 @@ public class ExceptionControllerAdvice {
 
     /**
      * Обработка исключения "ресурс не найден".
-     * Возвращает HTTP статус 404 (Not Found).
+     * Возвращает HTTP статус 404.
      */
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseBody
@@ -39,7 +37,7 @@ public class ExceptionControllerAdvice {
 
     /**
      * Обработка исключений с некорректными параметрами.
-     * Возвращает HTTP статус 400 (Bad Request).
+     * Возвращает HTTP статус 400.
      */
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseBody
