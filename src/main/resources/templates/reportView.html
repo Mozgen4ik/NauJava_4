@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Просмотр отчёта - Vinyl Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .report-info {
+            color: #666;
+            font-size: 14px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .report-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .actions {
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 5px;
+            background-color: #2196F3;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0b7dda;
+        }
+        .btn-success {
+            background-color: #4CAF50;
+        }
+        .btn-success:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>
+        ✅ Отчёт #<span th:text="${report.id}"></span>
+        <span class="status-badge">ГОТОВ</span>
+    </h1>
+    <div class="report-info">
+        Статус: <strong th:text="${report.status}"></strong>
+    </div>
+</div>
+
+<div class="report-content">
+    <!-- Здесь отображается содержимое отчёта в HTML-формате -->
+    <div th:utext="${report.content}"></div>
+</div>
+
+<div class="actions">
+    <a href="/reports/create" class="btn btn-success">📊 Создать новый отчёт</a>
+    <a href="/vinyl/view/list" class="btn">🎵 К списку пластинок</a>
+</div>
+</body>
+</html>
