@@ -1,12 +1,40 @@
 package ru.Artem.Vinyl.entity;
 
+import jakarta.persistence.*;
+
+/**
+ * Сущность VinylRecord (Виниловая пластинка).
+ * Связана с Genre (жанр) и Label (лейбл) через ManyToOne.
+ */
+@Entity
+@Table(name = "vinyl_record")
 public class VinylRecord {
+
+    @Id
+    @GeneratedValue
     private Long id;
-    private String artist;
+
+    @ManyToOne
+    @JoinColumn(name = "genre_id", nullable = false)
+    private Genre genre;
+
+    @ManyToOne
+    @JoinColumn(name = "label_id", nullable = false)
+    private Label label;
+
+    @Column(nullable = false)
+    private Integer year;
+
+    @Column(nullable = false)
     private String title;
-    private int year;
-    private String country;
-    private String style;
+
+    @Column
+    private String condition;
+
+    @Column(nullable = false)
+    private Float price;
+
+    // Геттеры и сеттеры
 
     public Long getId() {
         return id;
@@ -16,12 +44,28 @@ public class VinylRecord {
         this.id = id;
     }
 
-    public String getArtist() {
-        return artist;
+    public Genre getGenre() {
+        return genre;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
+
+    public Label getLabel() {
+        return label;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public String getTitle() {
@@ -32,27 +76,19 @@ public class VinylRecord {
         this.title = title;
     }
 
-    public int getYear() {
-        return year;
+    public String getCondition() {
+        return condition;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
-    public String getCountry() {
-        return country;
+    public Float getPrice() {
+        return price;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
+    public void setPrice(Float price) {
+        this.price = price;
     }
 }
